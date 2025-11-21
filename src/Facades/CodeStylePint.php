@@ -1,21 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ArtisanPackUI\CodeStylePint\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \ArtisanPackUI\CodeStylePint\A11y
+ * @see \ArtisanPackUI\CodeStylePint\CodeStylePint
  */
 class CodeStylePint extends Facade
 {
-	/**
-	 * Get the registered name of the component.
-	 *
-	 * @return string
-	 */
-	protected static function getFacadeAccessor()
-	{
-		return 'codeStylePint';
-	}
+    protected static function getFacadeAccessor(): string
+    {
+        return 'codeStylePint';
+    }
 }

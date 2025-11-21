@@ -1,16 +1,20 @@
 {
   "name": "artisanpack-ui/code-style-pint",
-  "description": "package name",
+  "description": "Laravel Pint preset for ArtisanPack UI code standards",
   "type": "library",
   "license": "GPL-3.0-or-later",
   "version": "1.0.0",
+  "keywords": [
+    "laravel",
+    "pint",
+    "code-style",
+    "php-cs-fixer",
+    "artisanpack"
+  ],
   "autoload": {
     "psr-4": {
-      "ArtisanPackUI\\CodeStylePintBlueprint\\": "src/"
-    },
-    "files": [
-      "src/helpers.php"
-    ]
+      "ArtisanPackUI\\CodeStylePint\\": "src/"
+    }
   },
   "autoload-dev": {
     "psr-4": {
@@ -25,9 +29,11 @@
   ],
   "require": {
     "php": "^8.2",
-    "illuminate/support": ">=5.3"
+    "illuminate/support": "^10.0|^11.0|^12.0"
   },
   "require-dev": {
+    "laravel/pint": "^1.0",
+    "orchestra/testbench": "^9.0|^10.0",
     "pestphp/pest": "^3.8",
     "pestphp/pest-plugin-laravel": "^3.1"
   },
@@ -39,11 +45,8 @@
   "extra": {
     "laravel": {
       "providers": [
-        "ArtisanPackUI\\CodeStylePintBlueprint\\CodeStylePintServiceProvider"
-      ],
-      "aliases": {
-        "CodeStylePint": "ArtisanPackUI\\CodeStylePintBlueprint\\Facades\\CodeStylePint"
-      }
+        "ArtisanPackUI\\CodeStylePint\\CodeStylePintServiceProvider"
+      ]
     }
   }
 }

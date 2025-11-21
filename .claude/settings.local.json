@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(composer update:*)",
+      "Bash(./vendor/bin/pest:*)",
+      "Bash(composer dump-autoload:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

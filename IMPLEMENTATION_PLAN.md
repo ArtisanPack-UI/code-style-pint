@@ -11,41 +11,46 @@ This document outlines the plan to create a Laravel Pint configuration package t
 The existing `code-style` package provides **17 custom PHPCS sniffs** organized into the following categories:
 
 ### 1. Formatting Sniffs
-| Sniff | Description | Key Rules |
-|-------|-------------|-----------|
-| `IndentationSniff` | Enforces indentation with 4 spaces | Currently disabled in source |
-| `BracesSniff` | Controls brace placement | Opening braces on same line for control structures, next line for functions |
-| `SpacingSniff` | Enforces spacing around operators, parentheses, brackets | Space after commas, around operators, control structure keywords |
-| `AlignmentSniff` | Aligns equal signs in consecutive assignments | Aligns `=` and `=>` operators in adjacent lines |
-| `LineLengthSniff` | Enforces line length limits | 120 char limit (currently disabled in ruleset) |
+
+| Sniff              | Description                                              | Key Rules                                                                   |
+|--------------------|----------------------------------------------------------|-----------------------------------------------------------------------------|
+| `IndentationSniff` | Enforces indentation with 4 spaces                       | Currently disabled in source                                                |
+| `BracesSniff`      | Controls brace placement                                 | Opening braces on same line for control structures, next line for functions |
+| `SpacingSniff`     | Enforces spacing around operators, parentheses, brackets | Space after commas, around operators, control structure keywords            |
+| `AlignmentSniff`   | Aligns equal signs in consecutive assignments            | Aligns `=` and `=>` operators in adjacent lines                             |
+| `LineLengthSniff`  | Enforces line length limits                              | 120 char limit (currently disabled in ruleset)                              |
 
 ### 2. Code Structure Sniffs
-| Sniff | Description | Key Rules |
-|-------|-------------|-----------|
-| `ClassStructureSniff` | Enforces class structure | One class per file, traits at top, visibility required |
-| `ControlStructuresSniff` | Controls format of control structures | Bracket format in PHP files, colon format in Blade |
-| `ImportOrderingSniff` | Orders import statements | Classes → Functions → Constants |
-| `ArraySyntaxSniff` | Enforces array formatting | Short syntax required, multi-item associative arrays on separate lines |
+
+| Sniff                    | Description                           | Key Rules                                                              |
+|--------------------------|---------------------------------------|------------------------------------------------------------------------|
+| `ClassStructureSniff`    | Enforces class structure              | One class per file, traits at top, visibility required                 |
+| `ControlStructuresSniff` | Controls format of control structures | Bracket format in PHP files, colon format in Blade                     |
+| `ImportOrderingSniff`    | Orders import statements              | Classes → Functions → Constants                                        |
+| `ArraySyntaxSniff`       | Enforces array formatting             | Short syntax required, multi-item associative arrays on separate lines |
 
 ### 3. Naming Convention Sniffs
-| Sniff | Description | Key Rules |
-|-------|-------------|-----------|
+
+| Sniff                    | Description              | Key Rules                                                                   |
+|--------------------------|--------------------------|-----------------------------------------------------------------------------|
 | `NamingConventionsSniff` | Enforces naming patterns | Classes: PascalCase, Functions/Variables: camelCase, DB columns: snake_case |
 
 ### 4. Security Sniffs
-| Sniff | Description | Key Rules |
-|-------|-------------|-----------|
-| `EscapeOutputSniff` | Ensures output escaping | All echo/print statements must use escape functions |
+
+| Sniff                          | Description                | Key Rules                                                      |
+|--------------------------------|----------------------------|----------------------------------------------------------------|
+| `EscapeOutputSniff`            | Ensures output escaping    | All echo/print statements must use escape functions            |
 | `ValidatedSanitizedInputSniff` | Ensures input sanitization | Superglobals and inputs must be sanitized before DB operations |
 
 ### 5. Best Practice Sniffs
-| Sniff | Description | Key Rules |
-|-------|-------------|-----------|
-| `YodaConditionalsSniff` | Enforces Yoda style comparisons | Literals on left side of comparisons |
-| `DisallowedFunctionsSniff` | Bans certain functions | `die`, `exit`, `var_dump`, `print_r`, `create_function` |
-| `TypeDeclarationSniff` | Requires type declarations | All parameters, properties, and return types |
-| `PhpTagsSniff` | Controls PHP tag usage | Opening/closing tags on own lines, no PHP tags in Blade |
-| `QuotesSniff` | Enforces quote usage | Single quotes unless escaping variables |
+
+| Sniff                      | Description                     | Key Rules                                               |
+|----------------------------|---------------------------------|---------------------------------------------------------|
+| `YodaConditionalsSniff`    | Enforces Yoda style comparisons | Literals on left side of comparisons                    |
+| `DisallowedFunctionsSniff` | Bans certain functions          | `die`, `exit`, `var_dump`, `print_r`, `create_function` |
+| `TypeDeclarationSniff`     | Requires type declarations      | All parameters, properties, and return types            |
+| `PhpTagsSniff`             | Controls PHP tag usage          | Opening/closing tags on own lines, no PHP tags in Blade |
+| `QuotesSniff`              | Enforces quote usage            | Single quotes unless escaping variables                 |
 
 ---
 
@@ -95,51 +100,51 @@ code-style-pint/
 
 ### Formatting Rules
 
-| PHPCS Sniff | PHP-CS-Fixer Rule | Configuration |
-|-------------|-------------------|---------------|
-| `IndentationSniff` | `indentation_type` | `spaces` with 4 spaces |
-| `BracesSniff` (control structures) | `braces_position` | `same_line` for control structures |
-| `BracesSniff` (functions) | `braces_position` | `next_line_unless_newline_at_signature_end` for functions |
-| `SpacingSniff` (operators) | `binary_operator_spaces` | `single_space` |
-| `SpacingSniff` (commas) | `no_space_before_comma`, `space_after_comma` | Enable both |
-| `SpacingSniff` (control structures) | `control_structure_braces`, `control_structure_continuation_position` | Configure spacing |
-| `AlignmentSniff` | `binary_operator_spaces` | `align` for assignments |
-| `LineLengthSniff` | N/A (Pint doesn't enforce line length) | Document as manual check |
+| PHPCS Sniff                         | PHP-CS-Fixer Rule                                                     | Configuration                                             |
+|-------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------|
+| `IndentationSniff`                  | `indentation_type`                                                    | `spaces` with 4 spaces                                    |
+| `BracesSniff` (control structures)  | `braces_position`                                                     | `same_line` for control structures                        |
+| `BracesSniff` (functions)           | `braces_position`                                                     | `next_line_unless_newline_at_signature_end` for functions |
+| `SpacingSniff` (operators)          | `binary_operator_spaces`                                              | `single_space`                                            |
+| `SpacingSniff` (commas)             | `no_space_before_comma`, `space_after_comma`                          | Enable both                                               |
+| `SpacingSniff` (control structures) | `control_structure_braces`, `control_structure_continuation_position` | Configure spacing                                         |
+| `AlignmentSniff`                    | `binary_operator_spaces`                                              | `align` for assignments                                   |
+| `LineLengthSniff`                   | N/A (Pint doesn't enforce line length)                                | Document as manual check                                  |
 
 ### Code Structure Rules
 
-| PHPCS Sniff | PHP-CS-Fixer Rule | Configuration |
-|-------------|-------------------|---------------|
-| `ClassStructureSniff` (one class per file) | `single_class_element_per_statement` | Enable |
-| `ClassStructureSniff` (traits at top) | `ordered_traits` | Enable |
-| `ClassStructureSniff` (visibility) | `visibility_required` | `['property', 'method']` |
-| `ImportOrderingSniff` | `ordered_imports` | `alpha` with `class`, `function`, `const` order |
-| `ArraySyntaxSniff` (short syntax) | `array_syntax` | `short` |
-| `ArraySyntaxSniff` (multiline) | `array_indentation`, `multiline_array_trailing_comma` | Enable |
-| `ControlStructuresSniff` | `braces` | Configure per file type (requires custom handling) |
+| PHPCS Sniff                                | PHP-CS-Fixer Rule                                     | Configuration                                      |
+|--------------------------------------------|-------------------------------------------------------|----------------------------------------------------|
+| `ClassStructureSniff` (one class per file) | `single_class_element_per_statement`                  | Enable                                             |
+| `ClassStructureSniff` (traits at top)      | `ordered_traits`                                      | Enable                                             |
+| `ClassStructureSniff` (visibility)         | `visibility_required`                                 | `['property', 'method']`                           |
+| `ImportOrderingSniff`                      | `ordered_imports`                                     | `alpha` with `class`, `function`, `const` order    |
+| `ArraySyntaxSniff` (short syntax)          | `array_syntax`                                        | `short`                                            |
+| `ArraySyntaxSniff` (multiline)             | `array_indentation`, `multiline_array_trailing_comma` | Enable                                             |
+| `ControlStructuresSniff`                   | `braces`                                              | Configure per file type (requires custom handling) | 
 
 ### Naming Convention Rules
 
-| PHPCS Sniff | PHP-CS-Fixer Rule | Configuration |
-|-------------|-------------------|---------------|
-| `NamingConventionsSniff` | N/A | Cannot be directly enforced by Pint; document as guidelines |
+| PHPCS Sniff              | PHP-CS-Fixer Rule | Configuration                                               |
+|--------------------------|-------------------|-------------------------------------------------------------|
+| `NamingConventionsSniff` | N/A               | Cannot be directly enforced by Pint; document as guidelines |
 
 ### Security Rules
 
-| PHPCS Sniff | PHP-CS-Fixer Rule | Configuration |
-|-------------|-------------------|---------------|
-| `EscapeOutputSniff` | N/A | Cannot be enforced by Pint; requires PHPCS |
-| `ValidatedSanitizedInputSniff` | N/A | Cannot be enforced by Pint; requires PHPCS |
+| PHPCS Sniff                    | PHP-CS-Fixer Rule | Configuration                              |
+|--------------------------------|-------------------|--------------------------------------------|
+| `EscapeOutputSniff`            | N/A               | Cannot be enforced by Pint; requires PHPCS |
+| `ValidatedSanitizedInputSniff` | N/A               | Cannot be enforced by Pint; requires PHPCS |
 
 ### Best Practice Rules
 
-| PHPCS Sniff | PHP-CS-Fixer Rule | Configuration |
-|-------------|-------------------|---------------|
-| `YodaConditionalsSniff` | `yoda_style` | `['equal' => true, 'identical' => true, 'less_and_greater' => false]` |
-| `DisallowedFunctionsSniff` | N/A (partially via `native_function_invocation`) | Document as manual check |
-| `TypeDeclarationSniff` | `declare_strict_types`, `void_return` | Enable type hints fixers |
-| `PhpTagsSniff` | `blank_line_after_opening_tag`, `linebreak_after_opening_tag` | Enable |
-| `QuotesSniff` | `single_quote` | Enable (won't change strings with variables) |
+| PHPCS Sniff                | PHP-CS-Fixer Rule                                             | Configuration                                                         |
+|----------------------------|---------------------------------------------------------------|-----------------------------------------------------------------------|
+| `YodaConditionalsSniff`    | `yoda_style`                                                  | `['equal' => true, 'identical' => true, 'less_and_greater' => false]` |
+| `DisallowedFunctionsSniff` | N/A (partially via `native_function_invocation`)              | Document as manual check                                              |
+| `TypeDeclarationSniff`     | `declare_strict_types`, `void_return`                         | Enable type hints fixers                                              |
+| `PhpTagsSniff`             | `blank_line_after_opening_tag`, `linebreak_after_opening_tag` | Enable                                                                |
+| `QuotesSniff`              | `single_quote`                                                | Enable (won't change strings with variables)                          |
 
 ---
 
@@ -148,6 +153,7 @@ code-style-pint/
 ### Step 1: Update Package Dependencies
 
 Update `composer.json`:
+
 ```json
 {
   "name": "artisanpack-ui/code-style-pint",
@@ -174,11 +180,14 @@ Update `composer.json`:
 ### Step 2: Create the Pint Configuration File
 
 Create `config/pint.json`:
+
 ```json
 {
   "preset": "laravel",
   "rules": {
-    "array_syntax": { "syntax": "short" },
+    "array_syntax": {
+      "syntax": "short"
+    },
     "binary_operator_spaces": {
       "default": "single_space",
       "operators": {
@@ -243,7 +252,11 @@ Create `config/pint.json`:
     },
     "ordered_imports": {
       "sort_algorithm": "alpha",
-      "imports_order": ["class", "function", "const"]
+      "imports_order": [
+        "class",
+        "function",
+        "const"
+      ]
     },
     "ordered_traits": true,
     "phpdoc_order": true,
@@ -258,10 +271,18 @@ Create `config/pint.json`:
     "single_quote": true,
     "single_trait_insert_per_statement": true,
     "trailing_comma_in_multiline": {
-      "elements": ["arrays", "arguments", "parameters"]
+      "elements": [
+        "arrays",
+        "arguments",
+        "parameters"
+      ]
     },
     "visibility_required": {
-      "elements": ["property", "method", "const"]
+      "elements": [
+        "property",
+        "method",
+        "const"
+      ]
     },
     "void_return": true,
     "yoda_style": {
@@ -286,6 +307,7 @@ Create `config/pint.json`:
 ### Step 3: Create Main Service Provider
 
 Update `src/CodeStylePintServiceProvider.php` to:
+
 - Register the publish command
 - Publish the pint.json configuration
 - Provide a method to programmatically generate config
@@ -293,6 +315,7 @@ Update `src/CodeStylePintServiceProvider.php` to:
 ### Step 4: Create Artisan Command
 
 Create `src/Commands/PublishPintConfigCommand.php`:
+
 - Publishes `pint.json` to project root
 - Optionally merges with existing config
 - Provides `--force` flag to overwrite
@@ -300,6 +323,7 @@ Create `src/Commands/PublishPintConfigCommand.php`:
 ### Step 5: Create Configuration Builder
 
 Create `src/Config/PintConfigBuilder.php`:
+
 - Fluent interface for building Pint config
 - Methods for each rule category
 - `toArray()` and `toJson()` methods
@@ -307,6 +331,7 @@ Create `src/Config/PintConfigBuilder.php`:
 ### Step 6: Create Preset Class
 
 Create `src/Presets/ArtisanPackUIPreset.php`:
+
 - Defines all the rules
 - Allows enabling/disabling specific rule groups
 - Provides rule descriptions
@@ -314,6 +339,7 @@ Create `src/Presets/ArtisanPackUIPreset.php`:
 ### Step 7: Create Rule Mapper Documentation
 
 Create `docs/rules-mapping.md`:
+
 - Full mapping between PHPCS and Pint rules
 - Notes on rules that cannot be translated
 - Recommendations for complementary PHPCS usage
@@ -325,25 +351,30 @@ Create `docs/rules-mapping.md`:
 The following PHPCS sniffs have **no direct equivalent** in PHP-CS-Fixer/Pint and will need to remain as PHPCS-only checks:
 
 ### Security Rules (Critical)
+
 1. **`EscapeOutputSniff`** - Validates escape function usage on output
 2. **`ValidatedSanitizedInputSniff`** - Validates sanitization of superglobals
 
 ### Naming Conventions
+
 3. **`NamingConventionsSniff`** - PascalCase/camelCase/snake_case enforcement
-   - PHP-CS-Fixer doesn't rename variables or functions
+    - PHP-CS-Fixer doesn't rename variables or functions
 
 ### Custom Rules
+
 4. **`DisallowedFunctionsSniff`** - Ban specific functions
-   - Can be partially addressed with `native_function_invocation` but not comprehensively
+    - Can be partially addressed with `native_function_invocation` but not comprehensively
 
 ### Line Length
+
 5. **`LineLengthSniff`** - Maximum line length
-   - PHP-CS-Fixer doesn't enforce line lengths
+    - PHP-CS-Fixer doesn't enforce line lengths
 
 ### Blade-Specific Rules
+
 6. **`ControlStructuresSniff`** (Blade colon syntax)
 7. **`PhpTagsSniff`** (no PHP tags in Blade)
-   - These require Blade-aware tooling
+    - These require Blade-aware tooling
 
 **Recommendation**: Document that for complete code style enforcement, developers should use **both** `artisanpack-ui/code-style` (PHPCS) for detection and `artisanpack-ui/code-style-pint` (Pint) for automatic fixing.
 
@@ -352,16 +383,19 @@ The following PHPCS sniffs have **no direct equivalent** in PHP-CS-Fixer/Pint an
 ## Testing Strategy
 
 ### Unit Tests
+
 1. **ConfigBuilderTest** - Test configuration building
 2. **RuleMapperTest** - Test rule mapping logic
 3. **PresetTest** - Test preset generation
 
 ### Integration Tests
+
 1. **Sample PHP files** with style violations
 2. **Run Pint** with the configuration
 3. **Assert** files are formatted correctly
 
 ### Test Files to Create
+
 ```
 tests/
 ├── fixtures/
@@ -387,27 +421,32 @@ tests/
 ## Documentation Structure
 
 ### README.md
+
 - Package overview
 - Installation instructions
 - Quick start guide
 - Link to full documentation
 
 ### docs/installation.md
+
 - Composer installation
 - Publishing configuration
 - Verifying installation
 
 ### docs/usage.md
+
 - Running Pint with the preset
 - IDE integration
 - CI/CD integration
 
 ### docs/rules-mapping.md
+
 - Complete PHPCS → Pint mapping table
 - Rules not available in Pint
 - Complementary PHPCS usage
 
 ### docs/customization.md
+
 - Overriding specific rules
 - Creating custom presets
 - Excluding files/directories
@@ -461,49 +500,53 @@ jobs:
 ## Timeline & Priorities
 
 ### Phase 1: Core Implementation (MVP)
-- [ ] Update `composer.json` with correct dependencies
-- [ ] Create base `pint.json` configuration
-- [ ] Create `PublishPintConfigCommand`
-- [ ] Update service provider
-- [ ] Write basic documentation
+
+- [x] Update `composer.json` with correct dependencies
+- [x] Create base `pint.json` configuration
+- [x] Create `PublishPintConfigCommand`
+- [x] Update service provider
+- [x] Write basic documentation
 
 ### Phase 2: Enhanced Features
-- [ ] Create `PintConfigBuilder` for programmatic config
-- [ ] Create `ArtisanPackUIPreset` class
-- [ ] Add rule group toggles (formatting, best-practices, etc.)
-- [ ] Create customization documentation
+
+- [x] Create `PintConfigBuilder` for programmatic config
+- [x] Create `ArtisanPackUIPreset` class
+- [x] Add rule group toggles (formatting, best-practices, etc.)
+- [x] Create customization documentation
 
 ### Phase 3: Testing & Documentation
-- [ ] Write unit tests for config builder
-- [ ] Write integration tests with fixture files
-- [ ] Complete all documentation
-- [ ] Create rules mapping documentation
+
+- [x] Write unit tests for config builder
+- [x] Write integration tests with fixture files
+- [x] Complete all documentation
+- [x] Create rules mapping documentation
 
 ### Phase 4: Polish
-- [ ] Add IDE integration guides
-- [ ] Add CI/CD examples
-- [ ] Create migration guide
-- [ ] Final review and release
+
+- [x] Add IDE integration guides
+- [x] Add CI/CD examples
+- [x] Create migration guide
+- [x] Final review and release
 
 ---
 
 ## Open Questions
 
 1. **Should the package require `laravel/pint`?**
-   - Pro: Ensures Pint is available
-   - Con: Users might already have Pint installed
+    - Pro: Ensures Pint is available
+    - Con: Users might already have Pint installed
 
 2. **Should we support PHP-CS-Fixer directly?**
-   - Pint is Laravel's wrapper, but some projects use PHP-CS-Fixer directly
-   - Could provide both `pint.json` and `.php-cs-fixer.php`
+    - Pint is Laravel's wrapper, but some projects use PHP-CS-Fixer directly
+    - Could provide both `pint.json` and `.php-cs-fixer.php`
 
 3. **How to handle Blade files?**
-   - Pint doesn't process Blade files
-   - Document that Blade rules require PHPCS or a separate tool
+    - Pint doesn't process Blade files
+    - Document that Blade rules require PHPCS or a separate tool
 
 4. **Should alignment rules be enabled by default?**
-   - The `AlignmentSniff` aligns `=` and `=>` operators
-   - This can be controversial and may not be everyone's preference
+    - The `AlignmentSniff` aligns `=` and `=>` operators
+    - This can be controversial and may not be everyone's preference
 
 ---
 
