@@ -7,8 +7,8 @@ class QuoteStyle
     public function getStrings(): array
     {
         return [
-            "simple string",
-            "another string",
+            'simple string',
+            'another string',
             "string with $variable interpolation",
             'already single quoted',
         ];
@@ -16,6 +16,6 @@ class QuoteStyle
 
     public function getKey(): string
     {
-        return "key";
+        return 'key';
     }
 }

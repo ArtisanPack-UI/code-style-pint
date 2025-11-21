@@ -20,7 +20,7 @@ describe('Pint Integration', function () {
     });
 
     it('can save config to a file', function () {
-        $tempFile = sys_get_temp_dir() . '/pint-test-' . uniqid() . '.json';
+        $tempFile = sys_get_temp_dir().'/pint-test-'.uniqid().'.json';
 
         $result = PintConfigBuilder::create()
             ->withArtisanPackUIPreset()
@@ -71,31 +71,31 @@ describe('PublishPintConfigCommand', function () {
 
 describe('Fixture Files', function () {
     it('before fixtures exist', function () {
-        $fixturesPath = dirname(__DIR__) . '/fixtures/before';
+        $fixturesPath = dirname(__DIR__).'/fixtures/before';
 
         expect(is_dir($fixturesPath))->toBeTrue();
 
-        $files = glob($fixturesPath . '/*.php');
+        $files = glob($fixturesPath.'/*.php');
 
         expect($files)->not->toBeEmpty();
     });
 
     it('after fixtures exist', function () {
-        $fixturesPath = dirname(__DIR__) . '/fixtures/after';
+        $fixturesPath = dirname(__DIR__).'/fixtures/after';
 
         expect(is_dir($fixturesPath))->toBeTrue();
 
-        $files = glob($fixturesPath . '/*.php');
+        $files = glob($fixturesPath.'/*.php');
 
         expect($files)->not->toBeEmpty();
     });
 
     it('before and after fixtures have matching files', function () {
-        $beforePath = dirname(__DIR__) . '/fixtures/before';
-        $afterPath  = dirname(__DIR__) . '/fixtures/after';
+        $beforePath = dirname(__DIR__).'/fixtures/before';
+        $afterPath = dirname(__DIR__).'/fixtures/after';
 
-        $beforeFiles = array_map('basename', glob($beforePath . '/*.php'));
-        $afterFiles  = array_map('basename', glob($afterPath . '/*.php'));
+        $beforeFiles = array_map('basename', glob($beforePath.'/*.php'));
+        $afterFiles = array_map('basename', glob($afterPath.'/*.php'));
 
         sort($beforeFiles);
         sort($afterFiles);

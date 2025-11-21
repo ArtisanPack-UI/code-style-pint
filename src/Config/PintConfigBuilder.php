@@ -22,7 +22,7 @@ class PintConfigBuilder
 
     public static function create(): self
     {
-        return new self();
+        return new self;
     }
 
     public function preset(string $preset): self
@@ -55,7 +55,7 @@ class PintConfigBuilder
 
     public function withArtisanPackUIPreset(): self
     {
-        $preset = new ArtisanPackUIPreset();
+        $preset = new ArtisanPackUIPreset;
 
         if ($this->formattingRules) {
             $this->rules = array_merge($this->rules, $preset->getFormattingRules());

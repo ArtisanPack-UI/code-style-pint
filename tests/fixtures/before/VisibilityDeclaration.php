@@ -6,11 +6,11 @@ class VisibilityDeclaration
 {
     const MY_CONST = 'value';
 
-    var $oldStyleProperty = 'old';
+    public $oldStyleProperty = 'old';
 
     public $publicProperty = 'public';
 
-    function noVisibilityMethod()
+    public function noVisibilityMethod()
     {
         return 'no visibility';
     }

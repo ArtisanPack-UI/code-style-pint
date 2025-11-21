@@ -12,7 +12,7 @@ class CodeStylePintServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton('codeStylePint', function ($app) {
-            return new CodeStylePint();
+            return new CodeStylePint;
         });
     }
 
@@ -24,11 +24,11 @@ class CodeStylePintServiceProvider extends ServiceProvider
             ]);
 
             $this->publishes([
-                __DIR__ . '/../stubs/pint.json.stub' => base_path('pint.json'),
+                __DIR__.'/../stubs/pint.json.stub' => base_path('pint.json'),
             ], 'artisanpack-pint-config');
 
             $this->publishes([
-                __DIR__ . '/../stubs/boost-pint-override.blade.php.stub' => base_path('.ai/guidelines/laravel/pint.blade.php'),
+                __DIR__.'/../stubs/boost-pint-override.blade.php.stub' => base_path('.ai/guidelines/laravel/pint.blade.php'),
             ], 'artisanpack-boost-override');
         }
     }

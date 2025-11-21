@@ -8,15 +8,15 @@ class YodaConditions
 {
     public function checkValue($value): bool
     {
-        if (null === $value) {
+        if ($value === null) {
             return false;
         }
 
-        if ('test' == $value) {
+        if ($value == 'test') {
             return true;
         }
 
-        if (42 === $value) {
+        if ($value === 42) {
             return true;
         }
 

@@ -6,7 +6,7 @@ use ArtisanPackUI\CodeStylePint\Presets\ArtisanPackUIPreset;
 
 describe('ArtisanPackUIPreset', function () {
     beforeEach(function () {
-        $this->preset = new ArtisanPackUIPreset();
+        $this->preset = new ArtisanPackUIPreset;
     });
 
     describe('getFormattingRules', function () {
@@ -119,10 +119,10 @@ describe('ArtisanPackUIPreset', function () {
 
     describe('getAllRules', function () {
         it('returns combined rules from all groups', function () {
-            $allRules       = $this->preset->getAllRules();
+            $allRules = $this->preset->getAllRules();
             $formattingRules = $this->preset->getFormattingRules();
             $structureRules = $this->preset->getCodeStructureRules();
-            $practiceRules  = $this->preset->getBestPracticeRules();
+            $practiceRules = $this->preset->getBestPracticeRules();
 
             $expectedCount = count($formattingRules) + count($structureRules) + count($practiceRules);
 

@@ -23,7 +23,7 @@ class PublishPintConfigCommand extends Command
     public function handle(): int
     {
         $targetPath = base_path('pint.json');
-        $stubPath   = dirname(__DIR__, 2) . '/stubs/pint.json.stub';
+        $stubPath = dirname(__DIR__, 2).'/stubs/pint.json.stub';
 
         if ($this->filesystem->exists($targetPath) && ! $this->option('force')) {
             $this->error('pint.json already exists! Use --force to overwrite.');

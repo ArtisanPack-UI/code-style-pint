@@ -6,20 +6,20 @@ class ArraySyntax
 {
     public function getLongArraySyntax()
     {
-        return array('foo', 'bar', 'baz');
+        return ['foo', 'bar', 'baz'];
     }
 
     public function getAssociativeArray()
     {
-        return array('foo' => 'bar', 'baz' => 'qux');
+        return ['foo' => 'bar', 'baz' => 'qux'];
     }
 
     public function getNestedArray()
     {
-        return array(
-            'level1' => array(
-                'level2' => array('a', 'b', 'c')
-            )
-        );
+        return [
+            'level1' => [
+                'level2' => ['a', 'b', 'c'],
+            ],
+        ];
     }
 }
