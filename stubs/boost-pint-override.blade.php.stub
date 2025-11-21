@@ -1,0 +1,139 @@
+## Laravel Pint (ArtisanPack UI Standards)
+
+Use Laravel Pint with the ArtisanPack UI code style configuration to format PHP code.
+
+### Running Pint
+
+Always format code with Pint before committing:
+
+@verbatim
+<code-snippet name="Format code" lang="bash">
+./vendor/bin/pint
+</code-snippet>
+@endverbatim
+
+Test without making changes:
+
+@verbatim
+<code-snippet name="Check formatting" lang="bash">
+./vendor/bin/pint --test
+</code-snippet>
+@endverbatim
+
+Format only changed files:
+
+@verbatim
+<code-snippet name="Format dirty files" lang="bash">
+./vendor/bin/pint --dirty
+</code-snippet>
+@endverbatim
+
+### Code Style Standards
+
+The ArtisanPack UI Pint configuration enforces:
+
+- **Array Syntax**: Use short syntax `[]` instead of `array()`
+- **Quotes**: Use single quotes for simple strings
+- **Strict Types**: Always include `declare(strict_types=1)` at the top of PHP files
+- **Imports**: Sort imports alphabetically (classes, then functions, then constants)
+- **Alignment**: Align `=` and `=>` operators in adjacent lines
+- **Braces**: Same line for control structures, next line for functions (unless signature ends with newline)
+- **Visibility**: Always declare visibility on properties, methods, and constants
+- **Yoda Conditions**: Use Yoda style for `==` and `===` comparisons
+- **Trailing Commas**: Add trailing commas in multiline arrays, arguments, and parameters
+
+### Example Formatted Code
+
+@verbatim
+<code-snippet name="Properly formatted PHP class" lang="php">
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services;
+
+use App\Models\User;
+use Illuminate\Support\Collection;
+
+class UserService
+{
+    public function __construct(
+        private User $user,
+        private string $name,
+    ) {
+    }
+
+    public function getActiveUsers(): Collection
+    {
+        return User::query()
+            ->where('status', '=', 'active')
+            ->get();
+    }
+
+    public function formatData(array $data): array
+    {
+        $name     = $data['name'] ?? 'Unknown';
+        $email    = $data['email'] ?? '';
+        $verified = true === ($data['verified'] ?? false);
+
+        return [
+            'name' => $name,
+            'email' => $email,
+            'verified' => $verified,
+        ];
+    }
+}
+</code-snippet>
+@endverbatim
+
+### When to Regenerate pint.json
+
+If the ArtisanPack UI standards are updated:
+
+@verbatim
+<code-snippet name="Update pint.json" lang="bash">
+php artisan artisanpack:publish-pint-config --force
+</code-snippet>
+@endverbatim
+
+### Custom Configuration
+
+To customize rules, use PintConfigBuilder:
+
+@verbatim
+<code-snippet name="Customize Pint rules" lang="php">
+use ArtisanPackUI\CodeStylePint\Config\PintConfigBuilder;
+
+PintConfigBuilder::create()
+    ->withArtisanPackUIPreset()
+    ->removeRule('yoda_style')  // Disable Yoda conditions if needed
+    ->exclude('app/Legacy')     // Exclude legacy code
+    ->save(base_path('pint.json'));
+</code-snippet>
+@endverbatim
+
+### Integration with PHPCS
+
+For complete code style enforcement, run PHPCS after Pint:
+
+@verbatim
+<code-snippet name="Full code style check" lang="bash">
+./vendor/bin/pint
+./vendor/bin/phpcs --standard=ArtisanPackUIStandard .
+</code-snippet>
+@endverbatim
+
+PHPCS catches issues Pint cannot fix: output escaping, input sanitization, naming conventions, and line length.
+
+### CI/CD Integration
+
+Always run Pint in test mode in CI pipelines:
+
+@verbatim
+<code-snippet name="GitHub Actions example" lang="yaml">
+- name: Run Pint
+  run: ./vendor/bin/pint --test
+</code-snippet>
+@endverbatim
+
+This ensures all code follows ArtisanPack UI standards before merging.

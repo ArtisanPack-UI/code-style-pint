@@ -125,8 +125,23 @@ For complete code style enforcement, use this package alongside `artisanpack-ui/
 ./vendor/bin/phpcs --standard=ArtisanPackUIStandard .
 ```
 
+## Laravel Boost Integration
+
+This package includes AI guidelines for Laravel Boost. When users run `php artisan boost:install`, the ArtisanPack UI Pint guidelines are automatically available to AI assistants.
+
+### Override Default Pint Guidelines
+
+To replace Laravel's default Pint guidelines with ArtisanPack UI standards:
+
+```bash
+php artisan vendor:publish --tag=artisanpack-boost-override
+```
+
+This creates `.ai/guidelines/laravel/pint.blade.php`, ensuring AI assistants follow ArtisanPack UI standards when generating or formatting code.
+
 ## Resources
 
 - **Repository**: [GitLab Repository](https://gitlab.com/jacob-martella-web-design/artisanpack-ui/code-style-pint)
 - **Issues**: [GitLab Issues](https://gitlab.com/jacob-martella-web-design/artisanpack-ui/code-style-pint/-/issues)
 - **Support**: For support, please open an issue on GitLab or contact the maintainer at [me@jacobmartella.com](mailto:me@jacobmartella.com)
+- **Laravel Boost**: [https://laravelboost.com](https://laravelboost.com)

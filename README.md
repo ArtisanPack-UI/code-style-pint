@@ -140,6 +140,20 @@ Some rules cannot be enforced by Pint (security checks, naming conventions, line
    ./vendor/bin/phpcs --standard=ArtisanPackUIStandard .
    ```
 
+## Laravel Boost AI Guidelines
+
+This package includes AI guidelines for [Laravel Boost](https://laravelboost.com), which will automatically be available when users run `php artisan boost:install`.
+
+### Overriding Default Pint Guidelines
+
+To have AI assistants use ArtisanPack UI standards instead of Laravel's default Pint guidelines, publish the Boost override:
+
+```bash
+php artisan vendor:publish --tag=artisanpack-boost-override
+```
+
+This creates `.ai/guidelines/laravel/pint.blade.php`, which overrides Boost's default Pint guidelines with ArtisanPack UI specific guidance.
+
 ## Documentation
 
 - [Customization Guide](docs/customization.md) - Customize rules and configuration

@@ -26,6 +26,10 @@ class CodeStylePintServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../stubs/pint.json.stub' => base_path('pint.json'),
             ], 'artisanpack-pint-config');
+
+            $this->publishes([
+                __DIR__ . '/../stubs/boost-pint-override.blade.php.stub' => base_path('.ai/guidelines/laravel/pint.blade.php'),
+            ], 'artisanpack-boost-override');
         }
     }
 }
