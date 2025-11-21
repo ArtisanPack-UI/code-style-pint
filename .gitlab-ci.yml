@@ -58,19 +58,8 @@ unit-tests:
     policy: pull
   image: php:8.2
   parallel: 2
-  before_script:
-    - pecl install pcov
-    - docker-php-ext-enable pcov
   script:
-    - ./vendor/bin/pest tests/Unit --ci --coverage --coverage-clover=coverage-unit.xml --parallel
-  artifacts:
-    reports:
-      coverage_report:
-        coverage_format: cobertura
-        path: coverage-unit.xml
-    paths:
-      - coverage-unit.xml
-    expire_in: 1 week
+    - ./vendor/bin/pest tests/Unit --ci --parallel
 
 # Feature Tests
 feature-tests:
@@ -88,27 +77,14 @@ feature-tests:
       prefix: v1
     policy: pull
   image: php:8.2
-  before_script:
-    - pecl install pcov
-    - docker-php-ext-enable pcov
   script:
-    - ./vendor/bin/pest tests/Feature --ci --coverage --coverage-clover=coverage-feature.xml
-  artifacts:
-    reports:
-      coverage_report:
-        coverage_format: cobertura
-        path: coverage-feature.xml
-    paths:
-      - coverage-feature.xml
-    expire_in: 1 week
+    - ./vendor/bin/pest tests/Feature --ci
 
 # Test Coverage Analysis
 coverage-analysis:
   stage: coverage
   dependencies:
     - build:vendors
-    - unit-tests
-    - feature-tests
   only:
     refs:
       - merge_requests
