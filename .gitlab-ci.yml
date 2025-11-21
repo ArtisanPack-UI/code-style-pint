@@ -58,6 +58,9 @@ unit-tests:
     policy: pull
   image: php:8.2
   parallel: 2
+  before_script:
+    - pecl install pcov
+    - docker-php-ext-enable pcov
   script:
     - ./vendor/bin/pest tests/Unit --ci --coverage --coverage-clover=coverage-unit.xml --parallel
   artifacts:
@@ -85,6 +88,9 @@ feature-tests:
       prefix: v1
     policy: pull
   image: php:8.2
+  before_script:
+    - pecl install pcov
+    - docker-php-ext-enable pcov
   script:
     - ./vendor/bin/pest tests/Feature --ci --coverage --coverage-clover=coverage-feature.xml
   artifacts:
@@ -100,6 +106,7 @@ feature-tests:
 coverage-analysis:
   stage: coverage
   dependencies:
+    - build:vendors
     - unit-tests
     - feature-tests
   only:
@@ -107,6 +114,9 @@ coverage-analysis:
       - merge_requests
       - push
   image: php:8.2
+  before_script:
+    - pecl install pcov
+    - docker-php-ext-enable pcov
   script:
     - ./vendor/bin/pest --coverage --coverage-html=coverage-html --coverage-clover=coverage-combined.xml --min=80
   coverage: '/^\s*Lines:\s*\d+.\d+\%/'
