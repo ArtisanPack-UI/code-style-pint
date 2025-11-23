@@ -27,7 +27,9 @@
     "control_structure_continuation_position": {
       "position": "same_line"
     },
-    "declare_strict_types": true,
+    "concat_space": {
+      "spacing": "one"
+    },
     "fully_qualified_strict_types": true,
     "function_declaration": {
       "closure_function_spacing": "one"
