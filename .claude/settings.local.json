@@ -3,7 +3,14 @@
     "allow": [
       "Bash(composer update:*)",
       "Bash(./vendor/bin/pest:*)",
-      "Bash(composer dump-autoload:*)"
+      "Bash(composer dump-autoload:*)",
+      "WebFetch(domain:developer.wordpress.org)",
+      "Bash(composer show:*)",
+      "Bash(cd /Users/jacobmartella/Desktop/ArtisanPack\\ UI\\ Packages/code-style-pint && composer require:*)",
+      "Bash(cd:*)",
+      "Bash(cd /Users/jacobmartella/Desktop/ArtisanPack\\ UI\\ Packages/code-style-pint && PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer:*)",
+      "Bash(cd /Users/jacobmartella/Desktop/ArtisanPack UI Packages/code-style-pint && PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer fix:*)",
+      "Bash(env PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer fix:*)"
     ],
     "deny": [],
     "ask": []

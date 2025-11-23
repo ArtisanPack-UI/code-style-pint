@@ -36,6 +36,8 @@ php artisan vendor:publish --tag=artisanpack-pint-config
 
 When developing a Laravel package, use `PintConfigBuilder` directly since `php artisan` isn't available:
 
+**Standard Pint Configuration:**
+
 ```php
 <?php
 // pint-setup.php
@@ -60,9 +62,47 @@ Or copy the stub directly:
 cp vendor/artisanpack-ui/code-style-pint/stubs/pint.json.stub pint.json
 ```
 
+**WordPress-Style Spacing (PHP-CS-Fixer):**
+
+For WordPress-style spacing in packages, copy the PHP-CS-Fixer configuration stub:
+
+```bash
+cp vendor/artisanpack-ui/code-style-pint/stubs/.php-cs-fixer.dist.php.stub .php-cs-fixer.dist.php
+```
+
+Then install PHP-CS-Fixer:
+
+```bash
+composer require --dev friendsofphp/php-cs-fixer
+```
+
+### WordPress-Style Spacing (Laravel Applications)
+
+If you need WordPress-style spacing (spaces inside parentheses and brackets) in a Laravel application, use the `--wordpress` flag:
+
+```bash
+php artisan artisanpack:publish-pint-config --wordpress
+```
+
+This will create `.php-cs-fixer.dist.php` with custom fixers that enforce:
+
+- **Spaces inside parentheses**: `if ( $var )` instead of `if ($var)`
+- **Spaces inside brackets** (variable indices only): `$array[ $key ]` instead of `$array[$key]`
+- **Spaces around concatenation**: `$a . $b` instead of `$a.$b`
+
+**Note**: WordPress spacing requires PHP-CS-Fixer instead of Pint:
+
+```bash
+# Install PHP-CS-Fixer
+composer require --dev friendsofphp/php-cs-fixer
+
+# Run code formatting
+./vendor/bin/php-cs-fixer fix
+```
+
 ### Running Pint
 
-Once the configuration is in place, run Pint to format your code:
+Once the Pint configuration is in place, run Pint to format your code:
 
 ```bash
 ./vendor/bin/pint
@@ -72,6 +112,20 @@ To test without making changes:
 
 ```bash
 ./vendor/bin/pint --test
+```
+
+### Running PHP-CS-Fixer (WordPress Spacing)
+
+If you're using WordPress-style spacing, run PHP-CS-Fixer instead:
+
+```bash
+./vendor/bin/php-cs-fixer fix
+```
+
+To test without making changes:
+
+```bash
+./vendor/bin/php-cs-fixer fix --dry-run --diff
 ```
 
 ## Programmatic Configuration
@@ -108,12 +162,14 @@ This preset enforces the following code style rules:
 - **Binary Operator Spaces**: Single space around operators, aligned assignments
 - **Brace Position**: Same line for control structures, next line for functions
 - **Class Structure**: Ordered class elements (traits, constants, properties, methods)
+- **Concatenation Spacing**: Single space around concatenation operator (`. `)
 - **Import Ordering**: Alphabetically sorted imports (classes, functions, constants)
 - **Single Quotes**: Single quotes for strings without variables
-- **Strict Types**: `declare(strict_types=1)` required
 - **Trailing Commas**: In multiline arrays, arguments, and parameters
 - **Visibility Required**: All properties, methods, and constants must have visibility
 - **Yoda Style**: Literals on the left side of comparisons
+
+For WordPress-style spacing (spaces inside parentheses and brackets), see the [WordPress-Style Spacing](#wordpress-style-spacing) section.
 
 ## Complementary PHPCS Usage
 
