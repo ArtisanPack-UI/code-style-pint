@@ -5,6 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-11-23
+
+### Added
+
+- WordPress-style spacing support via custom PHP-CS-Fixer fixers
+- `SpacesInsideParenthesisFixer` - Adds spaces inside parentheses (e.g., `if ( $var )`)
+- `SpacesInsideBracketsFixer` - Adds spaces inside brackets for variable array indices (e.g., `$array[ $key ]`)
+- `concat_space` rule for spacing around concatenation operators (e.g., `$a . $b`)
+- `.php-cs-fixer.dist.php` configuration file with custom fixers
+- `.php-cs-fixer.dist.php.stub` for publishing to user projects
+- `--wordpress` flag for `artisan artisanpack:publish-pint-config` command
+- WordPress spacing documentation in README for both Laravel applications and packages
+- Package-specific WordPress spacing setup instructions
+- Comprehensive WordPress spacing examples in Laravel Boost guidelines
+
+### Changed
+
+- Updated `PublishPintConfigCommand` to support WordPress-style spacing option
+- Enhanced Laravel Boost AI guidelines with WordPress spacing instructions
+- Updated README with WordPress-style spacing section
+- Modified rule groups documentation to reflect concatenation spacing
+- Updated composer scripts examples for both Pint and PHP-CS-Fixer workflows
+
+### Removed
+
+- `declare_strict_types` rule from default configuration (was too strict for some projects)
+- Strict types mentions from documentation and guidelines
+
+### Fixed
+
+- Custom bracket fixer now correctly processes closing brackets by handling index shifts
+- WordPress spacing correctly distinguishes between variable indices (`$array[ $key ]`) and literal indices (`$array['key']`)
+
 ## [1.0.0] - November 21, 2025
 
 ### Added
