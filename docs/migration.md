@@ -205,7 +205,7 @@ PHPCS is still needed for:
 - Disallowed functions
 - Blade-specific rules
 
-See [Rules Mapping](rules-mapping) for details on which rules require PHPCS.
+See [Rules Mapping](Rules-Mapping) for details on which rules require PHPCS.
 
 ## Gradual Migration
 
@@ -317,7 +317,7 @@ git add app/Http/Controllers && git commit -m "style: format Controllers"
 
 ## Disabling Controversial Rules
 
-If certain rules cause too many changes, disable them initially. See [Customization Guide](customization) for details.
+If certain rules cause too many changes, disable them initially. See [Customization Guide](Customization) for details.
 
 ```php
 use ArtisanPackUI\CodeStylePint\Config\PintConfigBuilder;
@@ -371,13 +371,13 @@ git revert HEAD
 
 If you encounter issues during migration:
 
-1. Check the [Customization Guide](customization) for rule adjustments
-2. Review the [Rules Mapping](rules-mapping) for PHPCS equivalents
+1. Check the [Customization Guide](Customization) for rule adjustments
+2. Review the [Rules Mapping](Rules-Mapping) for PHPCS equivalents
 3. Open an issue on the package repository
 
 ## Related Documentation
 
-- [Home](home)
-- [Customization Guide](customization)
-- [Rules Mapping](rules-mapping)
-- [CI/CD Integration](ci-cd)
+- [Home](Home)
+- [Customization Guide](Customization)
+- [Rules Mapping](Rules-Mapping)
+- [CI/CD Integration](Ci-Cd)

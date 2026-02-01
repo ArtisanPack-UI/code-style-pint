@@ -302,6 +302,6 @@ For large files or projects:
 
 ## Related Documentation
 
-- [Home](home)
-- [Customization Guide](customization)
-- [CI/CD Integration](ci-cd)
+- [Home](Home)
+- [Customization Guide](Customization)
+- [CI/CD Integration](Ci-Cd)

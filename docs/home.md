@@ -71,7 +71,7 @@ php pint-setup.php
 ./vendor/bin/pint
 ```
 
-For detailed instructions, see the [Customization Guide](customization).
+For detailed instructions, see the [Customization Guide](Customization).
 
 ### Basic Usage Example
 
@@ -90,17 +90,17 @@ PintConfigBuilder::create()
 
 ### Guides
 
-- [Customization Guide](customization) - Customize rules and build configurations programmatically
-- [Migration Guide](migration) - Migrate from other code style tools
+- [Customization Guide](Customization) - Customize rules and build configurations programmatically
+- [Migration Guide](Migration) - Migrate from other code style tools
 
 ### Reference
 
-- [Rules Mapping](rules-mapping) - Complete PHPCS to Pint rule mapping reference
+- [Rules Mapping](Rules-Mapping) - Complete PHPCS to Pint rule mapping reference
 
 ### Integration
 
-- [IDE Integration](ide-integration) - Set up Pint in PhpStorm, VS Code, Vim, and more
-- [CI/CD Integration](ci-cd) - Integrate with GitHub Actions, GitLab CI, and other platforms
+- [IDE Integration](Ide-Integration) - Set up Pint in PhpStorm, VS Code, Vim, and more
+- [CI/CD Integration](Ci-Cd) - Integrate with GitHub Actions, GitLab CI, and other platforms
 
 ## Complementary Tools
 
@@ -143,5 +143,5 @@ This creates `.ai/guidelines/laravel/pint.blade.php`, ensuring AI assistants fol
 
 - **Repository**: [GitLab Repository](https://gitlab.com/jacob-martella-web-design/artisanpack-ui/code-style-pint)
 - **Issues**: [GitLab Issues](https://gitlab.com/jacob-martella-web-design/artisanpack-ui/code-style-pint/-/issues)
-- **Support**: For support, please open an issue on GitLab or contact the maintainer at [me@jacobmartella.com](mailto:me@jacobmartella.com)
+- **Support**: For support, please open an issue on GitLab or contact the maintainer at [me@jacobmartella.com](Mailto:Me@Jacobmartella.Com)
 - **Laravel Boost**: [https://laravelboost.com](https://laravelboost.com)

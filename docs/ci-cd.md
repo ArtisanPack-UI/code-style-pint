@@ -442,7 +442,7 @@ composer style:fix  # Auto-fix style
 
 ## Related Documentation
 
-- [Home](home)
-- [Customization Guide](customization)
-- [IDE Integration](ide-integration)
-- [Rules Mapping](rules-mapping)
+- [Home](Home)
+- [Customization Guide](Customization)
+- [IDE Integration](Ide-Integration)
+- [Rules Mapping](Rules-Mapping)

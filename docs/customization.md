@@ -296,7 +296,7 @@ You can also manually edit the published `pint.json` file. Here are common custo
 
 ## IDE Integration
 
-For detailed IDE setup instructions, see [IDE Integration Guide](ide-integration).
+For detailed IDE setup instructions, see [IDE Integration Guide](Ide-Integration).
 
 ### PhpStorm
 
@@ -320,7 +320,7 @@ Install the "Laravel Pint" extension and configure:
 
 ## Related Documentation
 
-- [Home](home)
-- [Rules Mapping](rules-mapping)
-- [IDE Integration](ide-integration)
-- [Migration Guide](migration)
+- [Home](Home)
+- [Rules Mapping](Rules-Mapping)
+- [IDE Integration](Ide-Integration)
+- [Migration Guide](Migration)

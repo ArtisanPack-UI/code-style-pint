@@ -166,7 +166,7 @@ For complete code style enforcement, use both packages together:
 
 ### CI/CD Pipeline
 
-For CI/CD integration examples, see [CI/CD Integration Guide](ci-cd).
+For CI/CD integration examples, see [CI/CD Integration Guide](Ci-Cd).
 
 ```yaml
 jobs:
@@ -181,6 +181,6 @@ jobs:
 
 ## Related Documentation
 
-- [Home](home)
-- [Customization Guide](customization)
-- [CI/CD Integration](ci-cd)
+- [Home](Home)
+- [Customization Guide](Customization)
+- [CI/CD Integration](Ci-Cd)
