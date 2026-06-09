@@ -21,7 +21,7 @@ ArtisanPack UI Code Style Pint is a Laravel Pint preset that mirrors the coding 
 ### Technology Stack
 
 - **PHP 8.2+**: Built for modern PHP versions
-- **Laravel 10/11/12**: Compatible with recent Laravel versions
+- **Laravel 10/11/12/13**: Compatible with recent Laravel versions
 - **Laravel Pint**: Uses Laravel's official code style tool
 - **PHP-CS-Fixer**: Powered by PHP-CS-Fixer under the hood
 
