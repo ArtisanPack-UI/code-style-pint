@@ -56,7 +56,10 @@ final class SpacesInsideParenthesisFixer extends AbstractFixer
             $this->fixOpeningParenthesis($tokens, $index);
         }
 
-        for ($index = 0, $count = $tokens->count(); $index < $count; ++$index) {
+        // Re-read the count on every pass: the loop above and this one both
+        // insert whitespace tokens, so a count taken up front would stop
+        // short and skip the closing parentheses at the end of the file.
+        for ($index = 0; $index < $tokens->count(); ++$index) {
             $token = $tokens[$index];
 
             if (! $token->equals(')')) {
